@@ -23,8 +23,10 @@ class readInput:
         print(board)
         for row in range(len(board)):
             for k,v in board[row].items():
+                # key: location of blank, value: card to the left of blank
                 if v == "blank":
-                    blank_dict[(row,k)] = v
+                    blank_dict[(row, k)] = board[row][k-1]  
+
         print(blank_dict)
 read = readInput()
 read.readinputfile()
