@@ -21,6 +21,11 @@ class readInput:
         global board
         board = [row1,row2,row3,row4]
         print(board)
+        for row in range(len(board)):
+            for k,v in board[row].items():
+                if v == "blank":
+                    blank_dict[(row,k)] = v
+        print(blank_dict)
 read = readInput()
 read.readinputfile()
 
