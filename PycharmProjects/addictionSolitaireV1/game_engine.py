@@ -138,6 +138,9 @@ def update_board(blank_loc, candidate_card):
     # getting the location of candidate card from the board
     candidate_card_loc = get_card_loc(candidate_card)
 
+    if candidate_card_loc in read_input.twos:
+        del read_input.twos[candidate_card_loc]
+
     # row and col number of candidate card form board
     candidate_card_row = candidate_card_loc[0]
     candidate_card_col = candidate_card_loc[1]
@@ -154,4 +157,6 @@ def update_board(blank_loc, candidate_card):
     read_input.board[candidate_card_row][candidate_card_col] = "blank"
 
     # updating the blank_dict
+    if candidate_card_col == 0:
+        read_input.blank_dict[candidate_card_loc] = None
     read_input.blank_dict[candidate_card_loc] = read_input.board[candidate_card_row][candidate_card_col-1]
